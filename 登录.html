@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/login.css"/>
+    <title>登录·中旅后台管理系统</title>
+</head>
+<body>
+    <div class="main">
+        <div class="login-inner">
+            <form action="" class="layui-form">
+                <h2>中旅后台管理系统</h2>
+                <div class="login_form">
+                    <p>登录</p>
+                    <div class="item account">
+                        <input type="text" placeholder="用户名">
+                    </div>
+                    <div class="item password">
+                        <input type="password" placeholder="密码">
+                    </div>
+                    <div class="item idtcode">
+                        <input type="text" placeholder="验证码">
+                        <img src="img/validateimg.jpg" alt="">
+                    </div>
+                    <div class="rem-con">
+                        <input type="checkbox" name="" title="记住密码" lay-skin="primary" checked>
+                    </div>
+                    <button class="layui-btn">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use(['form'], function(){
+            var form = layui.form;
+            form.render()
+        })
+    </script>
+</body>
+</html>

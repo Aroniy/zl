@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/layui.css"/>
+    <link rel="stylesheet" href="css/add.css">
+</head>
+<body>
+    <div class="main_container">
+        <div class="layui-row search">
+            <div class="layui-col-md6">
+                <h3>添加财务记录</h3>
+            </div>
+            <div class="layui-col-md6"></div>
+        </div>
+
+        <div class="add-inner add-records">
+            <form action="" class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">记录类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="records-type" lay-filter="records-type" title="充值" class="layui-input" value="1" checked>
+                        <input type="radio" name="records-type" lay-filter="records-type" title="扣款" class="layui-input" value="2">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">客户名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" class="layui-input" placeholder="">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">客户手机号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" class="layui-input" placeholder="">
+                    </div>
+                </div>
+
+
+                <!--充值-->
+                <div id="recharge">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">充值金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">上传凭证</label>
+                        <div class="layui-input-block">
+                            <div class="layui-upload">
+                                <button type="button" class="layui-btn" id="upload">点击选择</button>
+                                <blockquote class="layui-elem-quote layui-quote-nm" id="upload-img-container" style="margin-top: 10px;">
+                                    <div class="layui-upload-list" id="upload-container"></div>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--扣款-->
+                <div id="deduction">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">扣款金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="" style="display: inline-block;width:300px;vertical-align: middle;">
+                            <div class="layui-btn"> <i class="layui-icon">&#xe615;</i> 查找</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="layui-btn save-btn">保存</div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use(['form', 'upload', 'jquery'], function() {
+            var form = layui.form,
+                upload = layui.upload,
+                $ = layui.jquery;
+
+            form.render();
+
+            form.on("radio(records-type)", function(data){
+                data.value==2?(function(){$("#deduction").show();$("#recharge").hide();})():(function(){$("#deduction").hide();$("#recharge").show();})();
+            });
+
+            upload.render({
+                elem: '#upload'
+                ,url: '/upload/'
+                ,multiple: true
+                ,before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    $("#upload-img-container").show();
+                    obj.preview(function(index, file, result){
+                        $('#upload-container').append('<div class="img-container-sm"><i class="layui-icon delete-btn-pz">&#x1006;</i><img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img"></div>');
+                    });
+                }
+                ,done: function(res){
+                    //上传完毕
+                }
+            });
+
+            //删除图片
+            $("#upload-container").on("click", ".delete-btn", function(){
+                $(this).parent().remove();
+            })
+
+        })
+
+    </script>
+</body>
+</html>

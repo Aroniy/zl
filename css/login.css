@@ -1,0 +1,16 @@
+*{padding:0;margin:0}
+html{width:100%;height:100%}
+body{font-family:"Microsoft YaHei";background:url(../img/login-bg.jpg) center no-repeat;background-size:cover;width:100%;height:100%}
+.login-inner{width:420px;position:absolute;left:50%;top:50%;margin:-220px 0 0 -210px}
+.login-inner h2{font-size:30px;color:#fff;font-weight:400;text-align:center}
+.login-inner .login_form{background-color:#fff;padding:40px 45px 40px;box-sizing:border-box;margin:40px 0 0;border-radius:3px}
+.login-inner .login_form p{font-size:16px;color:#222;padding:0 0 20px}
+.login-inner .login_form .item{width:330px;height:50px;margin:0 auto;border:solid 1px #dedede;box-sizing:border-box}
+.login-inner .login_form .item.account{background:url(../img/user.png) center left 20px no-repeat;background-size:auto 40%}
+.login-inner .login_form .item.password{background:url(../img/pwd.png) center left 20px no-repeat;background-size:auto 40%;border-top:none;border-bottom:none}
+.login-inner .login_form .item.idtcode{background:url(../img/code.png) center left 20px no-repeat;background-size:auto 40%;font-size:0}
+.login-inner .login_form .item.idtcode img{width:100px;display:inline-block;vertical-align:middle}
+.login-inner .login_form .item.idtcode input{display:inline-block;width:170px;vertical-align:middle}
+.login-inner .login_form .item input{height:100%;width:278px;margin:0 0 0 50px;border:none;background:0 0;outline:0;font-size:14px}
+.login-inner .login_form label{font-size:14px;cursor:pointer}
+.login-inner .login_form .rem-con{padding:10px 0 25px}

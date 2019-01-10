@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/layui.css"/>
+    <link rel="stylesheet" href="css/schedule.css">
+    <!--<script src="js/vue.js"></script>-->
+    <script src="https://vuejs.org/js/vue.js"></script>
+</head>
+<body>
+    <div class="main_container" id="app">
+        <div class="layui-row search">
+            <div class="layui-col-md6">
+                <h3>项目添加</h3>
+            </div>
+            <div class="layui-col-md6"></div>
+        </div>
+
+        <div class="add-inner">
+            <div class="layui-row schedule layui-col-space20">
+                <!--行程列表-->
+                <div class="layui-col-md3">
+                    <div class="schedule-container">
+                        <div v-for="(item, index) in scheduleList" :class="[index==current_schedule?'current_schedule':'', 'schedule-item']" :key="index" @click="select_schedule(index)">
+                            <div class="date-icon">D{{index + 1}}</div>
+                            <div class="date-icon-right">
+                                <div class="schedule-date">{{item.date?item.date:'请在右侧选择时间'}}</div>
+                                <div class="schedule-destination">
+                                    <span v-for="(items, index) in item.cities">{{items.city?items.city:''}}</span>
+                                </div>
+                            </div>
+                            <img src="img/delete.png" class="delete_schedule" @click.stop="deleteDay(index)" title="删除改天行程">
+                        </div>
+                        <div class="add-schedule" @click="add_schedule"><i class="layui-icon">&#xe61f;</i>增加一天</div>
+                    </div>
+                </div>
+
+                <!--行程安排-->
+                <div class="layui-col-md5">
+                    <schedule-detail
+                            :detail="scheduleList[current_schedule]"
+                            :edit_traffic="edit_traffic"
+                            :show_add_city="show_add_city"
+                            :hotel_meals="hotel_meals"
+                            @add_city="add_city"
+                            @add_city_sure="add_city_sure"
+                            @city_input="city_input"
+                            @delete_traffic="delete_traffic"
+                            @airport_start="airport_start"
+                            @terminal_start="terminal_start"
+                            @flight_start="flight_start"
+                            @flight_end="flight_end"
+                            @airport_end="airport_end"
+                            @terminal_end="terminal_end"
+                            @delete_scene="delete_scene"
+                            @select_hotel="open_hotel"
+                            @hotel_filter="hotel_filter"
+                    ></schedule-detail>
+                </div>
+
+                <!--添加景点旅游套餐-->
+                <div class="layui-col-md4">
+                    <div class="scene-container">
+                        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this">相关景点</li>
+                                <li>旅游套餐</li>
+                            </ul>
+                            <div class="layui-tab-content">
+
+                                <!--景点-->
+                                <div class="layui-tab-item layui-show layui-form">
+                                    <div class="jd-search">
+                                        <input type="text" placeholder="请输入景点名称" class="layui-input">
+                                        <i class="layui-icon">&#xe615;</i>
+                                    </div>
+                                    <div class="jd-item" v-for="(item, index) in sceneList">
+                                        <div class="jd-item-pic" :style="{backgroundImage: ['url(' + item.pic + ')']}"></div>
+                                        <div class="jd-item-detail">
+                                            <div class="jd-item-detail-name">故宫博物馆</div>
+                                            <div class="js-item-star">
+                                                <i class="layui-icon-rate-solid layui-icon"></i>
+                                                <i class="layui-icon-rate-solid layui-icon"></i>
+                                                <i class="layui-icon-rate-solid layui-icon"></i>
+                                                <i class="layui-icon-rate-half layui-icon"></i>
+                                                <i class="layui-icon-rate layui-icon"></i>
+                                            </div>
+                                            <div class="jd-item-hot">{{item.msg}}</div>
+
+                                            <!--游玩时间推荐-->
+                                            <div class="notice">{{item.tips}}</div>
+                                        </div>
+
+                                        <!--添加到日程-->
+                                        <div class="add-to-schedule"><i :class="[item.checked?'layui-icon-ok-circle':'layui-icon-add-circle', 'layui-icon']" @click="scene_add_to_schedule(index)"></i></div>
+                                    </div>
+                                </div>
+
+                                <!--旅游套餐-->
+                                <div class="layui-tab-item">
+                                    <div class="jd-search">
+                                        <input type="text" placeholder="请输入相关景点名称" class="layui-input">
+                                        <i class="layui-icon">&#xe615;</i>
+                                    </div>
+
+
+                                    <div class="jd-item" v-for="(item, index) in meal">
+                                        <div class="jd-item-pic" :style="{backgroundImage: ['url(' + item.pic + ')']}"></div>
+                                        <div class="jd-item-detail">
+                                            <div class="jd-item-detail-name">{{item.name}}</div>
+                                            <div class="notice">{{item.tips}}</div>
+                                        </div>
+
+                                        <!--添加到日程-->
+                                        <div class="add-to-schedule"><i :class="[item.checked?'layui-icon-ok-circle':'layui-icon-add-circle', 'layui-icon']" @click="meal_add_to_schedule(index)"></i></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--酒店选择-->
+        <div class="outer_layout" v-show="show_hotel_select">
+            <div class="outer_inner">
+                <h3>酒店选择</h3>
+                <div class="search">
+                    <input type="text">
+                    <div class="layui-btn-sm layui-btn">搜索</div>
+                </div>
+
+                <!--酒店列表-->
+                <div class="hotel_list">
+                    <div class="hotel_item" v-for="(item, index) in hotel_list" @click="select_hotel(index)">
+                        <div class="hotel_pic" :style="{backgroundImage: ['url(' + item.pic + ')']}"></div>
+                        <div class="hotel_detail">
+                            <div class="hotel_name">{{item.name}}</div>
+                            <div class="hotel_msg">{{item.msg}}</div>
+                            <div class="hotel_address">{{item.address}}</div>
+                        </div>
+                        <i :class="[index==selected_hotel_index?'selected_hotel':'','layui-icon','layui-icon-ok']"></i>
+                    </div>
+                </div>
+
+                <div id="pagination"></div>
+
+                <div class="btnarea">
+                    <div class="layui-btn layui-btn-sm" @click="add_hotel">确定</div>
+                    <div class="layui-btn layui-btn-sm layui-btn-warm" @click="close_hotel_select">取消</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use(['laypage', 'form', 'element'], function(){
+            var laypage = layui.laypage,
+                element = layui.element,
+                form = layui.form;
+            form.render();
+
+            laypage.render({
+                elem: 'pagination'
+                ,count: 100
+                ,layout: ['prev', 'page', 'next']
+                ,jump: function(obj){
+                    console.log(obj)
+                }
+            });
+
+        });
+
+
+    </script>
+    <script src="js/schedule.js"></script>
+</body>
+</html>

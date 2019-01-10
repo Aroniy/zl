@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/layui.css"/>
+    <link rel="stylesheet" href="css/add.css">
+</head>
+<body>
+    <div class="main_container">
+        <div class="layui-row search">
+            <div class="layui-col-md6">
+                <h3>优惠券添加</h3>
+            </div>
+            <div class="layui-col-md6"></div>
+        </div>
+
+        <div class="add-inner add-coupon">
+            <form action="" class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">优惠券类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="coupon-type" lay-filter="coupon-type" title="代金券" class="layui-input" value="1" checked>
+                        <input type="radio" name="coupon-type" lay-filter="coupon-type" title="折扣券" class="layui-input" value="2">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">优惠券名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" class="layui-input" placeholder="例如7折优惠券、50元代金券">
+                    </div>
+                </div>
+
+
+                <!--代金券-->
+                <div id="cash">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">优惠金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="输入优惠金额，例如50">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">满减金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="输入满减金额，例如500">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--折扣券-->
+                <div id="discount">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">优惠折扣</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="输入优惠折扣，例如8折">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">最高限额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="" class="layui-input" placeholder="输入最高限额，例如500">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发行数量</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" class="layui-input" placeholder="例如500">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">每人限领</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" class="layui-input" placeholder="例如10">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发行方式</label>
+                    <div class="layui-input-block">
+                        <select name="publish-type" id="">
+                            <option value="1">活动发布</option>
+                            <option value="2">系统配置</option>
+                            <option value="3">分享获得</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">适用分类</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="use-type" class="layui-input" title="自选" checked>
+                        <input type="radio" name="use-type" class="layui-input" title="全部">
+                        <input type="radio" name="use-type" class="layui-input" title="酒店折扣">
+                    </div>
+                </div>
+
+
+                <div class="layui-btn save-btn">保存</div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use(['element', 'form', 'laydate', 'jquery'], function() {
+            var form = layui.form,
+                $ = layui.jquery;
+
+            form.render();
+
+            form.on("radio(coupon-type)", function(data){
+                data.value==2?(function(){$("#discount").show();$("#cash").hide();})():(function(){$("#discount").hide();$("#cash").show();})();
+            })
+        })
+
+    </script>
+</body>
+</html>

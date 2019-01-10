@@ -1,0 +1,532 @@
+html, body, .main_container {
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.main_container {
+    padding:30px;
+    box-sizing: border-box;
+}
+h2 {
+    margin:0 0 30px;
+}
+.add-inner {
+    position: absolute;
+    left:30px;
+    right:30px;
+    top:70px;
+    bottom:20px;
+}
+.schedule-container {
+    max-height:100%;
+    border:solid 1px #dedede;
+    border-radius: 3px;
+}
+.schedule-item {
+    padding:20px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    white-space:nowrap;
+    overflow: hidden;
+    position: relative;
+}
+.schedule-item:hover {
+    background-color: #f5f5f5;
+    transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+}
+.schedule-destination {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.schedule-destination span {
+    display: inline-block;
+    padding-right:5px;
+}
+.current_schedule {
+    background-color: #f5f5f5;
+    transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+}
+.date-icon {
+    width:40px;
+    height:40px;
+    text-align: center;
+    line-height: 40px;
+    color:#fff;
+    background-color: deepskyblue;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.date-icon-right {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left:10px;
+    width:80%;
+}
+.schedule-date {
+    font-size: 15px;
+    font-weight: bold;
+}
+.add-inner .schedule {
+    height:100%;
+}
+.schedule-detail {
+    border:solid 1px #dedede;
+}
+.add-schedule {
+    text-align: center;
+    color:deepskyblue;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.add-schedule .layui-icon {
+    font-size: 20px;
+    padding-right:6px;
+}
+.schedule-detail {
+    max-height: 100%;
+}
+#schedule-date {
+    border:none;
+    outline:none;
+    color:#333;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+.schedule-detail-top {
+    padding:20px 25px;
+    border-bottom:solid 1px #dedede;
+}
+.add-city {
+    font-size: 14px;
+    padding-top:5px;
+}
+.city-list {
+    display: inline-block;
+    vertical-align: middle;
+}
+.schedule-detail-top i.layui-icon {
+    font-size: 16px;
+    color:deepskyblue;
+    line-height: 20px;
+}
+.add-city-btn {
+    color:deepskyblue;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 20px;
+    font-size: 14px;
+    padding-left:10px;
+}
+.schedule-detail-top span {
+    font-size: 14px;
+}
+.scene-container {
+    border:solid 1px #dedede;
+    max-width:100%;
+}
+.jd-search {
+    text-align: right;
+}
+.jd-search>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+.jd-search input.layui-input {
+    border:none;
+    border-bottom:solid 1px #dedede;
+    width:50%;
+    box-sizing: border-box;
+    height:36px;
+    font-size: 14px;
+}
+.jd-search .layui-icon {
+    font-size: 18px;
+    line-height: 36px;
+    cursor: pointer;
+    background-color: deepskyblue;
+    padding:0px 8px;
+    border-radius: 2px;
+    color:#fff;
+}
+.jd-item {
+    font-size: 0;
+    margin-top:20px;
+    position: relative;
+}
+.jd-item-pic {
+    width: 150px;
+    height:100px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.jd-item-detail {
+    display: inline-block;
+    vertical-align: top;
+    padding-left:10px;
+    box-sizing: border-box;
+}
+.jd-item-detail-name {
+    font-size: 15px;
+}
+.js-item-star {
+    margin:5px 0;
+}
+.js-item-star>i {
+    width:20px;
+    height:20px;
+    display: inline-block;
+    vertical-align: middle;
+    color:deepskyblue;
+    font-size: 20px;
+}
+.jd-item-hot {
+    font-size: 15px;
+    color:#878787;
+}
+.notice {
+    margin-top:5px;
+    font-size:12px;
+    color:#aeaeae;
+}
+.add-to-schedule {
+    position: absolute;
+    right:10px;
+    bottom:10px;
+    color:deepskyblue;
+}
+.add-to-schedule i.layui-icon {
+    cursor: pointer;
+    width:25px;
+    height:25px;
+    font-size: 24px;
+}
+.traffic,.jdap-top,.hotel {
+    display: flex;
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    display: -moz-flex;
+    -moz-align-items: center;
+    display: -o-flex;
+    -o-align-items: center;
+    padding:20px 25px;
+    transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+}
+.jdap {
+    padding-bottom:10px;
+}
+.traffic:hover, .jdap:hover {
+    background-color: #f5f5f5;
+    transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+}
+.schedule-icon {
+    width:40px;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -moz-flex-shrink: 0;
+    -o-flex-shrink: 0;
+}
+.fly-icon {
+    width:30px;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -moz-flex-shrink: 0;
+    -o-flex-shrink: 0;
+    margin:0 15px;
+}
+.schedule-opera {
+    width:60px;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    text-align: right;
+}
+.schedule-opera .layui-icon {
+    width:25px;
+    height:25px;
+    font-size: 24px;
+    cursor: pointer;
+    color:deepskyblue;
+}
+.layui-icon.delete-icon {
+    color:red;
+}
+.schedule-end, .schedule-start {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -o-flex-grow: 1;
+    padding-left:20px;
+}
+.traffic h3 {
+    font-size: 14px;
+    margin-bottom:2px;
+}
+.traffic h4 {
+    font-size: 12px;
+    color:#878787;
+}
+.jdap-name {
+    padding-left:20px;
+}
+.jdap-time {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -o-flex-grow: 1;
+    padding-left:20px;
+}
+.jdap-time {
+    font-size: 12px;
+    color:#878787;
+}
+.start-time, .end-time {
+    width:72px;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+}
+.jd-pic {
+    padding:0px 20px 0 80px;
+    font-size: 0;
+}
+.jd-pic-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3%;
+    margin-bottom:3%;
+    width:30%;
+    padding:10% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.jdap .jd-input {
+    margin:0 20px 20px 80px;
+}
+.jdap .jd-input textarea {
+    margin-bottom: 20px;
+}
+
+.tab-title input[type=text] {
+    border:none;
+    text-align: center;
+}
+.layui-tab-title>li {
+    width:50%;
+    box-sizing: border-box;
+}
+.layui-tab-brief>.layui-tab-title .layui-this .layui-this {
+    color:#fff;
+}
+.layui-tab-brief>.layui-tab-title .layui-this {
+    color:#000;
+}
+.layui-form-select dl dd.layui-this {
+    background-color: #169bd5;
+    color: #fff;
+}
+.no_schedule {
+    font-size: 16px;
+    color:#878787;
+    padding:40px;
+    text-align: center;
+}
+.no_schedule i {
+    font-size: 20px;
+}
+.no_schedule>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+.add_city_con {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left:10px;
+}
+.add_city_con input {
+    width:100px;
+    height:24px;
+    box-sizing: border-box;
+    border:none;
+    border-bottom:solid 1px #d2d2d2;
+    display: inline-block;
+    vertical-align: middle;
+}
+.add_city_con .layui-btn {
+    height:24px;
+    line-height: 24px;
+    margin-left:5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.traffic input {
+    outline: none;
+    border:none;
+    /*border-bottom:solid 1px #d2d2d2;*/
+    width:100%;
+    font-size: 12px;
+    color:#545454;
+    background: none;
+    margin-top:4px;
+}
+.delete_schedule {
+    position: absolute;
+    width:20px;
+    right:20px;
+    top:50%;
+    margin-top:-10px;
+    cursor: pointer;
+    display: none;
+}
+.schedule-item:hover .delete_schedule {
+    display: block;
+}
+.meals_icon {
+    width:40px;
+}
+.hotel_meals {
+    width:190px;
+    text-align: right;
+}
+.hotel-name {
+    flex-grow:1;
+    -webkit-flex-grow:1;
+    -moz-flex-grow:1;
+    -o-flex-grow:1;
+    padding:0 10px;
+    cursor: pointer;
+}
+.hotel_meals .layui-form-checkbox {
+    margin-bottom:5px;
+}
+.hotel {
+    border-top:solid 1px #dedede;
+}
+.outer_layout {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.6);
+}
+.outer_inner {
+    width:600px;
+    height:400px;
+    background-color: #fff;
+    position: absolute;
+    left:50%;
+    top:50%;
+    border-radius: 5px;
+    margin-top:-200px;
+    margin-left:-300px;
+    padding:30px;
+    box-sizing: border-box;
+}
+.outer_inner h3 {
+    font-weight: bold;
+    text-align: center;
+}
+.search {
+    text-align: right;
+    padding:15px 0;
+}
+.search input {
+    height:30px;
+    box-sizing: border-box;
+    border:solid 1px #dedede;
+    outline: none;
+    padding-left:10px;
+    border-radius: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.hotel_list {
+    font-size: 0;
+}
+.hotel_list .hotel_item:nth-child(even){
+    margin-left:2%;
+}
+.hotel_item {
+    width:49%;
+    display: inline-block;
+    white-space: nowrap;
+    margin-top:10px;
+    cursor: pointer;
+    position: relative;
+}
+.hotel_item .layui-icon {
+    position: absolute;
+    top:0px;
+    right:0px;
+    color:#169bd5;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+}
+.selected_hotel.layui-icon {
+    display: block;
+}
+.hotel_item .hotel_pic {
+    width:100px;
+    height:80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+.hotel_item .hotel_detail {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    padding-left:10px;
+    width:150px;
+}
+.hotel_detail .hotel_name {
+    font-size: 14px;
+}
+.hotel_detail .hotel_address {
+    font-size: 12px;
+    color:#545454;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#pagination {
+    text-align: right;
+}
+.btnarea {
+    text-align: center;
+}
+.btnarea .layui-btn-warm {
+    margin-left:20px;
+}

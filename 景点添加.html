@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/layui.css"/>
+    <link rel="stylesheet" href="css/add.css">
+</head>
+<body>
+    <div class="main_container">
+        <div class="layui-row search">
+            <div class="layui-col-md6">
+                <h3>景点管理</h3>
+            </div>
+            <div class="layui-col-md6"></div>
+        </div>
+
+        <div class="add-inner">
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">基本信息</li>
+                    <li>图片库（53）</li>
+                </ul>
+                <div class="layui-tab-content">
+
+                    <!--基本信息-->
+                    <div class="layui-tab-item layui-show">
+                        <form action="" class="layui-form">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">景点名称</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入商品名称" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">景点级别</label>
+                                <div class="layui-input-block">
+                                    <select name="" id="">
+                                        <option value="0">5A</option>
+                                        <option value="1">4A</option>
+                                        <option value="2">3A</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属国家</label>
+                                <div class="layui-input-block">
+                                    <select name="" id="">
+                                        <option value="0">意大利</option>
+                                        <option value="1">法国</option>
+                                        <option value="2">日本</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">所属城市</label>
+                                <div class="layui-input-block">
+                                    <select name="" id="">
+                                        <option value="0">罗马</option>
+                                        <option value="1">巴黎</option>
+                                        <option value="2">东京</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">景点简介</label>
+                                <div class="layui-input-block">
+                                    <textarea name="" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">景点状态</label>
+                                <div class="layui-input-block">
+                                    <input type="checkbox" name="" lay-skin="switch" lay-text="ON|OFF" checked>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">开放时间</label>
+                                <div class="layui-input-block">
+                                    <input type="checkbox" name="" title="周一" checked>
+                                    <input type="checkbox" name="" title="周二" checked>
+                                    <input type="checkbox" name="" title="周三" checked>
+                                    <input type="checkbox" name="" title="周四" checked>
+                                    <input type="checkbox" name="" title="周五" checked>
+                                    <input type="checkbox" name="" title="周六" checked>
+                                    <input type="checkbox" name="" title="周日" checked>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">特殊关闭日期</label>
+                                <div class="layui-input-block">
+                                    <input type="text" class="layui-input" id="date-forbidden" placeholder="yyyy-mm-dd">
+                                    <div class="layui-icon add-date-btn">&#xe61f;</div>
+                                    <div class="date-container"></div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">其他事项</label>
+                                <div class="layui-input-block">
+                                    <textarea name="" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="layui-btn save-btn">保存</div>
+                        </form>
+                    </div>
+
+                    <!--图片库-->
+                    <div class="layui-tab-item">
+                        <form action="" class="layui-form">
+                            <div class="widget-con">
+                                <div class="layui-btn layui-btn-sm" id="upload"><i class="layui-icon">&#xe61f;</i>新增图片</div>
+                                <div class="layui-btn layui-btn-sm layui-btn-warm" id="select-all-picture" data-selectall="false" style="margin-left:10px;"><i class="layui-icon">&#xe642;</i>全选</div>
+                                <div class="layui-btn layui-btn-sm layui-btn-danger" id="delete-picture"><i class="layui-icon">&#xe640;</i>删除图片</div>
+                            </div>
+                            <div class="picture-container">
+                                <div class="picture-item" style="background-image: url('img/u1101.jpg')">
+                                    <input type="checkbox" name="picture" lay-skin="primary">
+                                </div>
+                                <div class="picture-item" style="background-image: url('img/u1100.jpg')">
+                                    <input type="checkbox" name="picture" lay-skin="primary">
+                                </div>
+                                <div class="picture-item" style="background-image: url('img/u1102.jpg')">
+                                    <input type="checkbox" name="picture" lay-skin="primary">
+                                </div>
+                                <div class="picture-item" style="background-image: url('img/bhddy_03.jpg')">
+                                    <input type="checkbox" name="picture" lay-skin="primary">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use(['element', 'form', 'laydate', 'jquery', 'upload'], function(){
+            var element = layui.element,
+                form = layui.form,
+                laydate = layui.laydate,
+                $ = layui.jquery,
+                upload = layui.upload;
+
+            form.render();
+
+
+            //特殊关闭日期
+            laydate.render({
+                elem:"#date-forbidden",
+                showBottom: false
+            })
+            function dateAdd(){
+                lay(".forbidden-date").each(function() {
+                    laydate.render({
+                        elem : this,
+                        trigger : 'focus'
+                    });
+                });
+            }
+            $(".add-date-btn").click(function(){
+                var dateDom = "<div class='date-row'>" +
+                                    "<input text='text' class='layui-input forbidden-date' placeholder='yyyy-mm-dd'>" +
+                                    "<div class='layui-icon delete-btn'>&#xe640;</div>" +
+                                "</div>";
+                $(".date-container").append(dateDom)
+                form.render();
+                dateAdd()
+            })
+
+            $(".date-container").on("click", ".delete-btn", function(){
+                $(this).parent().remove();
+            })
+
+
+            //图片管理
+            //全选
+            $("#select-all-picture").on("click", function(){
+                var flag = $(this).attr("data-selectall");
+                if(flag == "false"){
+                    $(".picture-container input[type=checkbox]").prop("checked", true);
+                    form.render();
+                    $(this).attr("data-selectall","true");
+                }else{
+                    $(".picture-container input[type=checkbox]").removeProp("checked");
+                    form.render();
+                    $(this).attr("data-selectall","false");
+                }
+            })
+            //删除
+            $("#delete-picture").on("click", function(){
+                var arr = $(".picture-container input[type=checkbox]:checked");
+                if(arr.length==0){
+                    layer.msg('请先选中要删除的图片~', {icon: 0});
+                    return;
+                }
+                for(var i=0;i<arr.length;i++){
+                    var cur = $(arr[i]);
+                    cur.parent().remove();
+                }
+            })
+
+            //上传
+            upload.render({
+                elem: '#upload'
+                ,url: '/upload/'
+                ,multiple: true
+                ,before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    $("#upload-img-container").show();
+                    obj.preview(function(index, file, result){
+                        $('.picture-container').prepend('<div class="picture-item" style="background-image: url(' + result + ')">' +
+                        '<input type="checkbox" name="picture" lay-skin="primary">' +
+                        '</div>');
+                        form.render();
+                    });
+                }
+                ,done: function(res){
+                    //上传完毕
+                }
+            });
+
+
+        });
+
+
+    </script>
+</body>
+</html>

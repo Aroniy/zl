@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/layui.css"/>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+
+<div class="main_container">
+
+    <div class="layui-row search">
+        <div class="layui-col-md6">
+            <h3>景点管理</h3>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-row" style="text-align: right;">
+                <input type="text" name="username" lay-verify="required" placeholder="请输入关键词" autocomplete="off" class="layui-input">
+                <button class="layui-btn">搜索</button>
+                <a href="景点添加.html" class="layui-btn">新增景点</a>
+            </div>
+        </div>
+    </div>
+
+
+    <form action="" class="layui-form">
+
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>景点ID</th>
+                <th>景点名称</th>
+                <th>
+                    <div class="layui-input-inline">
+                        <select name="" id="">
+                            <option value="-1">所属国家（全部）</option>
+                            <option value="0">意大利</option>
+                            <option value="1">法国</option>
+                            <option value="2">英国</option>
+                        </select>
+                    </div>
+                </th>
+                <th>
+                    <div class="layui-input-inline">
+                        <select name="" id="">
+                            <option value="-1">所属城市</option>
+                            <option value="0">罗马</option>
+                            <option value="1">巴黎</option>
+                            <option value="2">伦敦</option>
+                        </select>
+                    </div>
+                </th>
+                <th>
+                    <div class="layui-input-inline">
+                        <select name="" id="">
+                            <option value="-1">景点状态</option>
+                            <option value="0">正常</option>
+                            <option value="1">关闭</option>
+                        </select>
+                    </div>
+                </th>
+                <th>景点级别</th>
+                <th>图片数量</th>
+                <th>景点热度</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1052</td>
+                <td>斗兽场</td>
+                <td>意大利</td>
+                <td>罗马</td>
+                <td>正常</td>
+                <td>极高</td>
+                <td>50</td>
+                <td>54%</td>
+                <td><a href="" class="layui-btn layui-btn-xs">查看</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <div id="pagination"></div>
+</div>
+
+
+<script src="js/layui.js"></script>
+<script>
+
+    layui.use(['laypage', 'layer', 'form'], function() {
+        var laypage = layui.laypage
+            , layer = layui.layer
+            , form = layui.form;
+        laypage.render({
+            elem: 'pagination'
+            ,count: 100
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+            ,jump: function(e){
+                console.log(e)
+            }
+        });
+
+        layui.use("form", function(){
+            var form = layui.form;
+            form.render();
+        });
+
+    })
+
+</script>
+</body>
+</html>

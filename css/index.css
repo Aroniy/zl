@@ -1,0 +1,41 @@
+.main_container {
+    padding:30px;
+    box-sizing: border-box;
+}
+h2 {
+    margin:0 0 30px;
+}
+.con {
+    padding-top:20px;
+}
+.layui-input-block {
+    font-size: 0;
+    margin-left:10px;
+    margin-bottom:20px;
+}
+.layui-input {
+    display: inline-block;
+    width:180px;
+    font-size: 14px;
+}
+.input-title {
+    width:100px;
+    height:38px;
+    border-left:solid 1px #dedede;
+    border-top:solid 1px #dedede;
+    border-bottom:solid 1px #dedede;
+    font-size: 14px;
+    text-align: center;
+    line-height: 38px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.canvas {
+    font-size: 0;
+}
+.canvas .item {
+    width:50%;
+    display: inline-block;
+    vertical-align: top;
+}

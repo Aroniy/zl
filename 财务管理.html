@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-wdith, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/layui.css"/>
+  <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+
+<div class="main_container">
+
+    <div class="layui-row search">
+        <div class="layui-col-md6">
+            <h3>财务管理</h3>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-row" style="text-align: right;">
+                <input type="text" name="username" lay-verify="required" placeholder="请输入关键词" autocomplete="off" class="layui-input">
+                <button class="layui-btn">搜索</button>
+            </div>
+        </div>
+    </div>
+
+
+    <form action="" class="layui-form">
+
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>流水编号</th>
+                <th>客户名称</th>
+                <th>金额</th>
+                <th>方式</th>
+                <th>客户手机号</th>
+                <th>凭证方式</th>
+                <th>操作人</th>
+                <th>操作时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1052</td>
+                <td>张无忌</td>
+                <td>1020</td>
+                <td>充值</td>
+                <td>18566552233</td>
+                <td>转账费截图</td>
+                <td>小可</td>
+                <td>2018-10-10 12:45:20</td>
+                <td><a href="" class="layui-btn layui-btn-xs">查看</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <div id="pagination"></div>
+</div>
+
+
+<script src="js/layui.js"></script>
+<script>
+
+    layui.use(['laypage', 'layer', 'form'], function() {
+        var laypage = layui.laypage
+            , layer = layui.layer
+            , form = layui.form;
+        laypage.render({
+            elem: 'pagination'
+            ,count: 100
+            ,layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+            ,jump: function(e){
+                console.log(e)
+            }
+        });
+
+        layui.use("form", function(){
+            var form = layui.form;
+            form.render();
+        });
+
+    })
+
+</script>
+</body>
+</html>

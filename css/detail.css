@@ -1,0 +1,79 @@
+.main_container {
+    padding:30px;
+}
+h2 {
+    margin:0 0 30px;
+}
+.member-detail {
+    width:500px;
+    border:solid 10px #F2F2F2;
+    margin-top:30px;
+}
+.detail-inner .layui-row {
+    line-height: 40px;
+    border-bottom:1px solid #f6f6f6;
+}
+.desc {
+    color:#878787;
+    text-indent: 20px;
+}
+.member-detail .layui-row:not(.title):hover {
+    background-color: #F2F2F2;
+}
+.detail a {
+    display: block;
+    line-height: 24px;
+    color:#169bd5;
+}
+.detail a:hover {
+    color:#1E9FFF;
+}
+.records {
+    padding:10px 0;
+}
+.back-btn {
+    margin-top:30px;
+}
+.layui-row.title {
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+}
+
+
+
+
+.order-detail {
+    margin-top:30px;
+}
+.order-detail .detail-inner {
+    border:solid 10px #F2F2F2;
+}
+.order-detail .layui-row:not(.no-hover):hover {
+    background-color: #F2F2F2;
+}
+.order-no {
+    text-indent: 20px;
+}
+.order-status {
+    text-align: right;
+    color:#70B603;
+    padding-right:20px;
+}
+.order-img {
+    width:80%;
+    display: block;
+    margin:10px auto;
+    border-radius: 5px;
+}
+.sm-row-container {
+    margin:10px 0;
+}
+.sm-row-container .layui-row {
+    border-bottom:none;
+    line-height: 25px;
+    font-size: 12px;
+}
+.sm-row-container .layui-row .desc {
+    text-indent: 0;
+}
