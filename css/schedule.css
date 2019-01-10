@@ -11,11 +11,14 @@ h2 {
     margin:0 0 30px;
 }
 .add-inner {
-    position: absolute;
-    left:30px;
-    right:30px;
-    top:70px;
-    bottom:20px;
+
+}
+.project_info {
+    margin-top:20px;
+    width:500px;
+}
+.project_info label {
+    text-align: left;
 }
 .schedule-container {
     max-height:100%;
@@ -456,11 +459,11 @@ h2 {
     font-weight: bold;
     text-align: center;
 }
-.search {
+.outer_inner .search {
     text-align: right;
     padding:15px 0;
 }
-.search input {
+.outer_inner .search input {
     height:30px;
     box-sizing: border-box;
     border:solid 1px #dedede;
