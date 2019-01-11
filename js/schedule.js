@@ -57,7 +57,7 @@ Vue.component("schedule-detail", {
                             <input type="text" class="layui-input" placeholder="注意事项">
                         </div>                        
                     </div>
-                    <div class="layui-btn layui-btn-sm" style="margin:20px auto;display: block;width:80px;" v-show="detail.detail.length > 0 || detail.cities.length > 1">保存</div>
+                    <div class="layui-btn layui-btn-sm" style="margin:20px auto;display: block;width:80px;" v-show="detail.detail.length > 0 || detail.cities.length > 1" @click="save_schedule">保存</div>
                     <!--无安排-->
                     <div class="no_schedule" v-show="detail.detail.length == 0 && detail.cities.length <= 1"> 
                         <i class="layui-icon layui-icon-tips"></i> 
@@ -131,6 +131,9 @@ Vue.component("schedule-detail", {
         },
         hotel_filter: function(index){
             this.$emit("hotel_filter", index);
+        },
+        save_schedule: function(){
+            this.$emit("save_schedule")
         }
     }
 })
@@ -415,6 +418,14 @@ var app = new Vue({
             this.scheduleList[this.current_schedule].hotel = this.hotel_list[this.selected_hotel_index];
             this.show_hotel_select = false;
             console.log(this.scheduleList[this.current_schedule].hotel)
+        },
+
+
+
+
+        //保存行程
+        save_schedule: function(){
+            console.log("保存行程")
         }
     }
 })
